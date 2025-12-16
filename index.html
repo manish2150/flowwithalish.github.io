@@ -1,0 +1,3121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour Cafe | Premium Cafe in Bagar, Pokhara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D4A574;
+            --accent-color: #5D4037;
+            --light-color: #F5E9DD;
+            --dark-color: #3E2723;
+            --text-color: #333;
+            --text-light: #777;
+            --white: #fff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 8px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* RIGHT SIDE HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: fixed;
+            right: 20px; /* Changed from left to right */
+            top: 25px;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 3px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-btns {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+/* Stats Section */
+.stats-section {
+    background-color: var(--light-color);
+    padding: 80px 0;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 40px 20px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    display: inline-block;
+}
+
+/* REMOVED THE ::after CONTENT TO FIX DOUBLE PLUS SIGN */
+.stat-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Responsive Design for Stats */
+@media (max-width: 992px) {
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 60px 0;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-item {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        padding: 25px 15px;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .stat-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background-color: var(--light-color);
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            background-color: var(--white);
+            border: 2px solid var(--secondary-color);
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover .menu-item-img img {
+            transform: scale(1.1);
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-title h3 {
+            font-size: 1.4rem;
+        }
+
+        .menu-item-price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .menu-item-desc {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(139, 69, 19, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay p {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+
+
+/* Smart Order Section */
+.smart-order-section {
+    background: linear-gradient(135deg, #f9f5f0 0%, #f1e8dc 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.smart-order-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C8B7A' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.smart-order-container {
+    position: relative;
+    z-index: 1;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+.smart-order-container {
+    display: flex;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.order-info {
+    flex: 1;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 253, 250, 0.9));
+    border-radius: var(--border-radius);
+    padding: 35px;
+    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.08);
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.order-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--dark-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.order-features {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    transition: var(--transition);
+    border: 1px solid rgba(139, 69, 19, 0.08);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+    border-color: rgba(139, 69, 19, 0.2);
+}
+
+.feature-item i {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
+.feature-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--dark-color);
+}
+
+.feature-item p {
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.order-instructions {
+    background: linear-gradient(135deg, #fff9f0, #fff5e6);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-top: 30px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.05);
+}
+
+.order-instructions h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.order-instructions h4 i {
+    font-size: 1.3rem;
+    background: var(--primary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-instructions ol {
+    padding-left: 20px;
+}
+
+.order-instructions li {
+    margin-bottom: 12px;
+    color: var(--text-color);
+    line-height: 1.5;
+    padding-left: 8px;
+}
+
+.order-instructions li:last-child {
+    margin-bottom: 0;
+}
+
+.order-form-container {
+    flex: 1;
+    background: linear-gradient(145deg, #ffffff, #fffcf9);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.12);
+    border: 1px solid rgba(139, 69, 19, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.order-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.order-form-status {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    display: none;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid transparent;
+    backdrop-filter: blur(10px);
+}
+
+.order-form-status.success {
+    background: linear-gradient(135deg, #e8f5e9, #d4edda);
+    color: #2e7d32;
+    border-color: #c3e6cb;
+    display: block;
+}
+
+.order-form-status.error {
+    background: linear-gradient(135deg, #ffebee, #f8d7da);
+    color: #c62828;
+    border-color: #f5c6cb;
+    display: block;
+}
+
+.order-form-status i {
+    margin-right: 8px;
+}
+
+.smart-order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--dark-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form-group label i {
+    color: var(--primary-color);
+    -webkit-text-fill-color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0d6cc;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #fffcf9, #fffaf5);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #fff, #fffaf5);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    padding-left: 5px;
+}
+
+/* Quantity Selector */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+}
+
+.quantity-btn:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(139, 69, 19, 0.3);
+}
+
+.quantity-btn:active {
+    transform: translateY(-1px);
+}
+
+#orderQuantity {
+    width: 80px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    border: 2px solid var(--primary-color);
+    background: white;
+}
+
+.form-submit {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.submit-order-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border: none;
+    border-radius: 10px;
+    transition: var(--transition);
+    color: white;
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-order-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.submit-order-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(139, 69, 19, 0.35);
+}
+
+.submit-order-btn:hover::before {
+    left: 100%;
+}
+
+.submit-order-btn:active {
+    transform: translateY(-2px);
+}
+
+.form-note {
+    margin-top: 15px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 8px;
+}
+
+.form-note i {
+    color: var(--primary-color);
+}
+
+/* Menu Suggestions */
+.menu-suggestions {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f7ff, #e8f0ff);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.menu-suggestions h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.menu-suggestions h4 i {
+    font-size: 1.2rem;
+    background: var(--primary-color);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggested-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.suggestion-tag {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    box-shadow: 0 3px 6px rgba(139, 69, 19, 0.1);
+}
+
+.suggestion-tag:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(139, 69, 19, 0.2);
+}
+
+.suggestion-tag:active {
+    transform: translateY(-1px);
+}
+
+/* Food Items Container */
+.food-items-container {
+    position: relative;
+}
+
+.food-items-container textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0d6cc;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #fffcf9, #fffaf5);
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 120px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.food-items-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, #fff, #fffaf5);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.food-item-examples {
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #f0f2f4);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.food-item-examples p {
+    margin-bottom: 8px;
+    color: var(--dark-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.food-item-examples ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.food-item-examples li {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.food-item-examples li:last-child {
+    margin-bottom: 0;
+}
+
+/* Character Counter */
+.char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 5px;
+    padding-right: 5px;
+}
+
+.char-counter.warning {
+    color: #ff9800;
+    font-weight: 600;
+}
+
+.char-counter.error {
+    color: #f44336;
+    font-weight: 600;
+}
+
+/* Success/Error Modal */
+.order-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.order-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #ffffff, #fffcf9);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalIn 0.5s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+    background: rgba(0, 0, 0, 0.05);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+    background: rgba(139, 69, 19, 0.1);
+}
+
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-icon.success {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: #fff;
+}
+
+.modal-icon.error {
+    background: linear-gradient(135deg, #f44336, #c62828);
+    color: #fff;
+}
+
+.modal-content h3 {
+    margin-bottom: 10px;
+    color: var(--dark-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-content p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Responsive Design for Smart Order Section */
+@media (max-width: 992px) {
+    .smart-order-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .order-info,
+    .order-form-container {
+        width: 100%;
+    }
+    
+    .order-form-container {
+        padding: 30px;
+    }
+    
+    .order-info {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .smart-order-section {
+        padding: 60px 0;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group.half {
+        width: 100%;
+    }
+    
+    .order-info h3 {
+        text-align: center;
+    }
+    
+    .feature-item {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .order-instructions {
+        padding: 20px;
+    }
+    
+    .menu-suggestions {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .smart-order-section {
+        padding: 50px 0;
+    }
+    
+    .order-form-container {
+        padding: 25px 20px;
+    }
+    
+    .order-info {
+        padding: 25px 20px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+    
+    .submit-order-btn {
+        padding: 14px;
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+    }
+    
+    .modal-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .order-form-container {
+        padding: 20px 15px;
+    }
+    
+    .order-info {
+        padding: 20px 15px;
+    }
+    
+    .suggestion-tag {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
+
+
+
+
+     /* Contact Section */
+.contact-section {
+    background-color: var(--light-color);
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contact-detail i {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    flex-shrink: 0; /* Prevents icon from shrinking */
+}
+
+.contact-detail-content {
+    flex: 1;
+}
+
+.contact-detail-content h4 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.contact-detail-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: var(--white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.1);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Form Status Messages */
+.form-status {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    display: none;
+}
+
+.form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+
+        /* Form Status Messages */
+        .form-status {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .form-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: var(--white);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background-color: #f9f9f9;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: #f9f9f9;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Reviews Section */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .review-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .review-info .stars {
+            color: #FFC107;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Map Section */
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        /* Go to Top Button */
+        .go-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .go-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .go-top:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-5px);
+        }
+
+        /* WhatsApp Order Modal */
+        .whatsapp-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .whatsapp-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-content img {
+            max-width: 200px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        /* WhatsApp Modal Buttons */
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.modal-buttons .btn {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg,#ff9800, #faab34);
+    border: none;
+}
+
+.btn-whatsapp:hover {
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    color: white;
+}
+
+.btn-table {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    border: none;
+}
+
+.btn-table:hover {
+    background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+      color: white;
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+    .modal-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-buttons .btn {
+        width: 100%;
+    }
+}
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-text {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Changed from left to right */
+                width: 280px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                transition: var(--transition);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1); /* Shadow on left side */
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0; /* Changed from left to right */
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .header-container {
+                justify-content: center;
+            }
+
+            .logo {
+                margin-right: 40px; /* Changed from margin-left to margin-right */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-mug-hot"></i>
+                Flavour House
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#smart-order">Smart Table</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="animate-text">Experience Premium Taste at Flavour Cafe</h1>
+            <p class="animate-text">Located in Bagar 1, Pokhara near Prithvi Narayan Campus, we serve the finest coffee, delicious momos, chowmein, and other delicacies in a cozy, premium ambiance.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn">View Our Menu</a>
+               <a href="#contact" class="btn btn-outline" style="margin-left: 15px; border: 2px solid white; color: white;">Visit Us</a>
+               <style>
+                .btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: white;
+ color: black !important;
+    
+}
+
+               </style>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-text">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="3">0</div>
+                    <div class="stat-text">Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-text">Menu Items</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-text">5-Star Reviews</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Flavour House</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 class="animate-text">Our Story in Pokhara</h3>
+                    <p class="animate-text">Established in 2015, Flavour Cafe has become Bagar 1's favorite destination for coffee lovers and food enthusiasts in Pokhara. Located near Prithvi Narayan Campus, our mission is to provide a premium cafe experience with exceptional food and beverages in a warm, inviting atmosphere.</p>
+                    <p class="animate-text">We source the finest ingredients locally and prepare each dish with care and attention to detail. From our signature momos to our aromatic teas, every item on our menu is crafted to perfection.</p>
+                    <p class="animate-text">Our cafe is designed to be a welcoming space where students can study, friends can gather, professionals can work, and families can enjoy quality time together over great food and drinks with a view of beautiful Pokhara.</p>
+                    <a href="#gallery" class="btn" style="margin-top: 20px;">View Our Cafe</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Flavour Cafe Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu</h2>
+            </div>
+            <div class="menu-categories" id="menuCategories">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="momo">Momos</button>
+                <button class="category-btn" data-category="noodles">Noodles</button>
+                <button class="category-btn" data-category="snacks">Snacks</button>
+                <button class="category-btn" data-category="beverages">Beverages</button>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Cafe Interior">
+                    <div class="gallery-item-overlay">
+                        <p>Cafe Interior</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Delicious Burger">
+                    <div class="gallery-item-overlay">
+                        <p>Food Items</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80" alt="Delicious Pancakes">
+                    <div class="gallery-item-overlay">
+                        <p>Special Dishes</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Customers Enjoying Food">
+                    <div class="gallery-item-overlay">
+                        <p>Happy Customers</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cafe Ambiance">
+                    <div class="gallery-item-overlay">
+                        <p>Cafe Ambiance</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Delicious Food">
+                    <div class="gallery-item-overlay">
+                        <p>Food Presentation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Smart Order Section -->
+<section class="smart-order-section" id="smart-order">
+    <div class="container">
+        <div class="section-title">
+            <h2>Smart Order</h2>
+            <p class="section-subtitle">Place your order for dine-in directly from your table</p>
+        </div>
+        
+        <div class="smart-order-container">
+            <div class="order-info">
+                <h3>Quick & Easy Table Ordering</h3>
+                <div class="order-features">
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Fast Service</h4>
+                        <p>Get your order prepared quickly and served to your table</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-table"></i>
+                        <h4>Table Service</h4>
+                        <p>No need to wait in line, order directly from your table</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>Special Requests</h4>
+                        <p>Add custom instructions for your order</p>
+                    </div>
+                </div>
+                
+                <div class="order-instructions">
+                    <h4><i class="fas fa-info-circle"></i> How to Order:</h4>
+                    <ol>
+                        <li>Enter your table number</li>
+                        <li>Select number of people</li>
+                        <li>Choose your food from the menu</li>
+                        <li>Add any special instructions</li>
+                        <li>Submit and wait for your order</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="order-form-container">
+                <div class="order-form-status" id="orderFormStatus"></div>
+                <form class="smart-order-form" id="smartOrderForm" action="https://formspree.io/f/mrbalozl" method="POST">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="tableNumber">
+                                <i class="fas fa-table"></i> Table No. *
+                            </label>
+                            <input type="number" id="tableNumber" name="tableNumber" min="1" max="50" required 
+                                   placeholder="e.g., 5">
+                            <small class="form-hint">Please enter your table number</small>
+                        </div>
+                        
+                        <div class="form-group half">
+                            <label for="peopleCount">
+                                <i class="fas fa-users"></i> No. of People *
+                            </label>
+                            <select id="peopleCount" name="peopleCount" required>
+                                <option value="" disabled selected>Select number</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6">6 People</option>
+                                <option value="7">7+ People</option>
+                            </select>
+                            <small class="form-hint">Number of people at your table</small>
+                        </div>
+                    </div>
+                    
+                        <div class="form-group">
+                        <label for="foodItem">
+                            <i class="fas fa-utensils"></i> Food Items *
+                        </label>
+                        <div class="food-items-container">
+                            <textarea id="foodItem" name="foodItem" required 
+                                      placeholder="Write your food items here (e.g., 2 Veg Momo, 1 Chicken Chowmein, 3 Masala Tea)"
+                                      rows="4"></textarea>
+                    
+                    <div class="form-group">
+                        <label for="orderQuantity">
+                            <i class="fas fa-hashtag"></i> Quantity *
+                        </label>
+                        <div class="quantity-selector">
+                            <button type="button" class="quantity-btn minus" id="quantityMinus">-</button>
+                            <input type="number" id="orderQuantity" name="orderQuantity" min="1" max="20" value="1" required>
+                            <button type="button" class="quantity-btn plus" id="quantityPlus">+</button>
+                        </div>
+                        <small class="form-hint">Select quantity (1-20)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orderDescription">
+                            <i class="fas fa-edit"></i> Order Description
+                        </label>
+                        <textarea id="orderDescription" name="orderDescription" 
+                                  placeholder="Any special instructions? (e.g., less spicy, extra sauce, allergies, etc.)"
+                                  rows="3"></textarea>
+                        <small class="form-hint">Optional: Add cooking instructions or special requests</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerName">
+                            <i class="fas fa-user"></i> Your Name *
+                        </label>
+                        <input type="text" id="customerName" name="customerName" required 
+                               placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">
+                            <i class="fas fa-phone"></i> Contact Number
+                        </label>
+                        <input type="tel" id="customerPhone" name="customerPhone" 
+                               placeholder="Optional: For order updates">
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn submit-order-btn" id="submitOrderBtn">
+                            <i class="fas fa-paper-plane"></i> Place Order
+                        </button>
+                        <p class="form-note">
+                            <i class="fas fa-shield-alt"></i> Your order will be sent directly to our kitchen
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+            </div>
+            <div class="reviews-container">
+                <div class="review-card animate-text">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Customer">
+                        </div>
+                        <div class="review-info">
+                            <h4>Abhishek Shrestha</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "The best momos in Bagar, Pokhara! I've been coming here for years and the quality has always been exceptional. The cafe ambiance is perfect for a relaxing evening after classes at Prithvi Narayan Campus."
+                    </div>
+                </div>
+                <div class="review-card animate-text">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Customer">
+                        </div>
+                        <div class="review-info">
+                            <h4>Shraddha Poudel</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "Flavour Cafe has become my go-to spot for study sessions. Great coffee, fast WiFi, and the chowmein is absolutely delicious. Highly recommended for students!"
+                    </div>
+                </div>
+                <div class="review-card animate-text">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Customer">
+                        </div>
+                        <div class="review-info">
+                            <h4>Krish Subedi</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "I love the premium vibe of this cafe in Bagar 1. The shefal is my favorite snack, and their tea is the perfect blend. The home delivery service is quick and efficient throughout Pokhara."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are your opening hours?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We are open 7 days a week from 8:00 AM to 10:00 PM. On weekends, we extend our hours until 11:00 PM.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer home delivery in Pokhara?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer home delivery throughout Pokhara, with priority service in Bagar 1 and surrounding areas near Prithvi Narayan Campus. You can place your order through WhatsApp using our "Order Now" feature on each menu item.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept cash and mobile wallets. For home delivery, we accept cash on delivery and mobile wallets. .</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you have student discounts?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a 10% discount for students from Prithvi Narayan Campus and other educational institutions. Just show your student ID card when ordering.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I reserve a table in advance?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can reserve a table by calling us at +977 9709720243. We recommend reservations for weekends and evenings, especially during exam seasons at the campus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="animate-text">Get In Touch</h3>
+                    <p class="animate-text">Visit us at our location in Bagar 1, Pokhara or contact us for home delivery orders throughout the city.</p>
+                    
+                    <div class="contact-detail animate-text">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>Bagar 1, Pokhara, Nepal (Near Prithvi Narayan Campus)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail animate-text">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>+977 9709720243</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail animate-text">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>info@flavourcafepokhara.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail animate-text">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Monday - Sunday: 8:00 AM - 10:00 PM</p>
+                            <p>Weekends: Until 11:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="animate-text">Send Us a Message</h3>
+                    <div class="form-status" id="formStatus"></div>
+                    <form id="contactForm" action="https://formspree.io/f/mrbalozl" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" id="submitBtn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container animate-text" style="margin-top: 60px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4338.788765533613!2d83.98639237625147!3d28.238647475882093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995950079c7966f%3A0xe06ae1c0019fabb6!2sThe%20Flavour%20house!5e1!3m2!1sen!2snp!4v1765897041140!5m2!1sen!2snp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Flavour Cafe</div>
+                    <p>Premium cafe in Bagar 1, Pokhara offering delicious food, great coffee, and a welcoming atmosphere since 2015. Located near Prithvi Narayan Campus.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Bagar 1, Pokhara, Nepal</p>
+                    <p><i class="fas fa-phone"></i> +977 9709720243</p>
+                    <p><i class="fas fa-envelope"></i> info@flavourcafepokhara.com</p>
+                    <p><i class="fas fa-clock"></i> 8:00 AM - 10:00 PM (Mon-Sun)</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 The Flavour House. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for food lovers in Pokhara</p>
+                <p style="margin-top: 10px;">Web By: Alish Bhandari | CEO: xyzz</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Go to Top Button -->
+    <a href="#" class="go-top" id="goTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+<!-- WhatsApp Order Modal -->
+<div class="whatsapp-modal" id="whatsappModal">
+    <div class="modal-content">
+        <div class="close-modal" id="closeModal">
+            <i class="fas fa-times"></i>
+        </div>
+        <img id="modalItemImage" src="" alt="Food Item">
+        <h3 id="modalItemName"></h3>
+        <p id="modalItemDescription"></p>
+        <p>Price: <span id="modalItemPrice"></span></p>
+        <p>Choose your ordering method:</p>
+        
+        <div class="modal-buttons">
+            <button class="btn btn-whatsapp" id="confirmOrderBtn">
+                <i class="fab fa-whatsapp"></i> WhatsApp Delivery
+            </button>
+            <button class="btn btn-table" id="tableOrderBtn">
+                <i class="fas fa-table"></i> Table Order
+            </button>
+        </div>
+    </div>
+</div>
+
+ <script>
+    // Menu data
+    const menuItems = [
+        {
+            id: 1,
+            name: "Veg Momo",
+            price: "रु 100",
+            description: "Steamed dumplings filled with fresh vegetables and spices.",
+            image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+            category: "momo"
+        },
+        {
+            id: 2,
+            name: "Chicken Momo",
+            price: "रु 120",
+            description: "Juicy chicken-filled dumplings served with spicy chutney.",
+            image: "https://images.archanaskitchen.com/images/recipes/snack-recipes/indian-snack-recipes/Chicken_Momos_Recipe_Delicious_Steamed_Chicken_Dumplings_9f4ba30a90.jpg",
+            category: "momo"
+        },
+        {
+            id: 3,
+            name: "Veg Chowmein",
+            price: "रु 100",
+            description: "Stir-fried noodles with fresh vegetables and sauces.",
+            image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1392&q=80",
+            category: "noodles"
+        },
+        {
+            id: 4,
+            name: "Chicken Chowmein",
+            price: "रु 120",
+            description: "Noodles stir-fried with chicken and vegetables.",
+            image: "https://i.pinimg.com/736x/a4/ac/2c/a4ac2c0e7e32e0538f49c7628059fafa.jpg",
+            category: "noodles"
+        },
+        {
+            id: 5,
+            name: "Shefali",
+            price: "रु 60",
+            description: "Crispy fried snack served with tangy chutney.",
+            image: "https://i.ytimg.com/vi/rcdItiVrjh4/sddefault.jpg",
+            category: "snacks"
+        },
+        {
+            id: 6,
+            name: "French Fries",
+            price: "रु 80",
+            description: "Crispy golden fries served with ketchup.",
+            image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+            category: "snacks"
+        },
+        {
+            id: 7,
+            name: "Masala Tea",
+            price: "रु 50",
+            description: "Aromatic Nepali tea with spices and milk.",
+            image: "https://t4.ftcdn.net/jpg/01/66/87/43/360_F_166874362_kZTGg8x1JgRsSCJgO0GWhrkgSWa4ZqRA.jpg",
+            category: "beverages"
+        },
+        {
+            id: 8,
+            name: "Cappuccino",
+            price: "रु 120",
+            description: "Rich espresso with steamed milk and foam.",
+            image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1435&q=80",
+            category: "beverages"
+        },
+        {
+            id: 9,
+            name: "Chicken Burger",
+            price: "रु 110",
+            description: "Juicy chicken patty with fresh veggies in a soft bun.",
+            image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80",
+            category: "snacks"
+        },
+        {
+            id: 10,
+            name: "Iced Coffee",
+            price: "रु90",
+            description: "Chilled coffee with ice cream and chocolate.",
+            image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+            category: "beverages"
+        }
+    ];
+
+    // Current item for WhatsApp order
+    let currentOrderItem = null;
+
+    // DOM elements
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const goTopBtn = document.getElementById('goTop');
+    const menuItemsContainer = document.getElementById('menuItems');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const whatsappModal = document.getElementById('whatsappModal');
+    const closeModal = document.getElementById('closeModal');
+    const confirmOrderBtn = document.getElementById('confirmOrderBtn');
+    const tableOrderBtn = document.getElementById('tableOrderBtn');
+    const modalItemImage = document.getElementById('modalItemImage');
+    const modalItemName = document.getElementById('modalItemName');
+    const modalItemDescription = document.getElementById('modalItemDescription');
+    const modalItemPrice = document.getElementById('modalItemPrice');
+    const faqItems = document.querySelectorAll('.faq-item');
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    // NEW: Function to scroll to Smart Order section
+    function scrollToSmartOrder() {
+        const smartOrderSection = document.getElementById('smart-order');
+        if (smartOrderSection) {
+            // Close the modal first
+            closeWhatsAppModal();
+            
+            // Calculate offset for header
+            const headerHeight = 80;
+            const elementPosition = smartOrderSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+            
+            // Smooth scroll
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Optional: Highlight the smart order form
+            setTimeout(() => {
+                const formContainer = document.querySelector('.order-form-container');
+                if (formContainer) {
+                    formContainer.style.boxShadow = '0 0 0 3px rgba(255, 107, 107, 0.5)';
+                    formContainer.style.transform = 'scale(1.02)';
+                    formContainer.style.transition = 'all 0.5s ease';
+                    
+                    // Remove highlight after 2 seconds
+                    setTimeout(() => {
+                        formContainer.style.boxShadow = '';
+                        formContainer.style.transform = '';
+                    }, 2000);
+                }
+            }, 500);
+        }
+    }
+
+    // Stats Counter Animation
+    function animateStats() {
+        const statsSection = document.getElementById('stats');
+        if (!statsSection) return;
+        
+        // Check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+        
+        // Start counter animation
+        function startCounter() {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        // Format number and add + sign
+                        let formattedNumber = target;
+                        if (target >= 1000) {
+                            formattedNumber = (target/1000).toFixed(1) + 'K';
+                        }
+                        stat.textContent = formattedNumber;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        }
+        
+        // Check on load
+        if (isInViewport(statsSection)) {
+            startCounter();
+        } else {
+            // Add scroll listener
+            window.addEventListener('scroll', function handleScroll() {
+                if (isInViewport(statsSection)) {
+                    startCounter();
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            });
+        }
+    }
+
+    // Initialize menu items
+    function renderMenuItems(category = 'all') {
+        menuItemsContainer.innerHTML = '';
+        
+        const filteredItems = category === 'all' 
+            ? menuItems 
+            : menuItems.filter(item => item.category === category);
+        
+        filteredItems.forEach(item => {
+            const menuItemElement = document.createElement('div');
+            menuItemElement.className = 'menu-item animate-text';
+            menuItemElement.innerHTML = `
+                <div class="menu-item-img">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-title">
+                        <h3>${item.name}</h3>
+                        <span class="menu-item-price">${item.price}</span>
+                    </div>
+                    <p class="menu-item-desc">${item.description}</p>
+                    <button class="btn order-btn" data-id="${item.id}">Order Now</button>
+                </div>
+            `;
+            menuItemsContainer.appendChild(menuItemElement);
+        });
+        
+        // Add event listeners to order buttons
+        document.querySelectorAll('.order-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const itemId = parseInt(this.getAttribute('data-id'));
+                const item = menuItems.find(i => i.id === itemId);
+                openWhatsAppModal(item);
+            });
+        });
+        
+        // Trigger animation for newly added items
+        setTimeout(() => {
+            document.querySelectorAll('.animate-text').forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('visible');
+                }
+            });
+        }, 100);
+    }
+
+    // Open WhatsApp modal for ordering
+    function openWhatsAppModal(item) {
+        currentOrderItem = item;
+        modalItemImage.src = item.image;
+        modalItemName.textContent = item.name;
+        modalItemDescription.textContent = item.description;
+        modalItemPrice.textContent = item.price;
+        whatsappModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close WhatsApp modal
+    function closeWhatsAppModal() {
+        whatsappModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Send order via WhatsApp
+    function sendWhatsAppOrder() {
+        if (!currentOrderItem) return;
+        
+        const phoneNumber = "9779817186819";
+        const message = `Hello Flavour House Pokhara! I would like to order ${currentOrderItem.name} for home delivery. Price: ${currentOrderItem.price}. Please deliver to my address in Pokhara.`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappURL, '_blank');
+        closeWhatsAppModal();
+        
+        // Show success message
+        alert(`Your order for ${currentOrderItem.name} has been initiated on WhatsApp! Please complete your order there.`);
+    }
+
+    // Check if element is in viewport for animations
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Handle scroll animations
+    function handleScrollAnimations() {
+        document.querySelectorAll('.animate-text').forEach(el => {
+            if (isElementInViewport(el)) {
+                el.classList.add('visible');
+            }
+        });
+        
+        // Show/hide go to top button
+        if (window.scrollY > 300) {
+            goTopBtn.classList.add('active');
+        } else {
+            goTopBtn.classList.remove('active');
+        }
+        
+        // Change header background on scroll
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        }
+    }
+
+    // Toggle FAQ answer visibility
+    function toggleFAQ(index) {
+        faqItems.forEach((item, i) => {
+            if (i === index) {
+                item.classList.toggle('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Handle contact form submission with Formspree
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        try {
+            // Send form data to Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                formStatus.textContent = 'Thank you for your message! We will get back to you soon.';
+                formStatus.className = 'form-status success';
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error message
+            formStatus.textContent = 'Oops! There was a problem sending your message. Please try again or contact us directly.';
+            formStatus.className = 'form-status error';
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            
+            // Hide status message after 5 seconds
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        }
+    }
+
+    // Initialize event listeners
+    function initEventListeners() {
+        // Hamburger menu toggle (RIGHT SIDE)
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close hamburger menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close hamburger menu when clicking outside (RIGHT SIDE)
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target) || hamburger.contains(event.target);
+            if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Go to top button
+        goTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Menu category filtering
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Get category and render items
+                const category = this.getAttribute('data-category');
+                renderMenuItems(category);
+            });
+        });
+
+        // WhatsApp modal
+        closeModal.addEventListener('click', closeWhatsAppModal);
+        confirmOrderBtn.addEventListener('click', sendWhatsAppOrder);
+        
+        // Table order button
+        tableOrderBtn.addEventListener('click', scrollToSmartOrder);
+        
+        // Close modal when clicking outside
+        whatsappModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWhatsAppModal();
+            }
+        });
+
+        // FAQ toggle
+        faqItems.forEach((item, index) => {
+            item.querySelector('.faq-question').addEventListener('click', () => toggleFAQ(index));
+        });
+
+        // Contact form submission with Formspree
+        contactForm.addEventListener('submit', handleFormSubmit);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll event listener for animations
+        window.addEventListener('scroll', handleScrollAnimations);
+    }
+
+    // Smart Order Form Functionality
+    function initSmartOrderForm() {
+        const smartOrderForm = document.getElementById('smartOrderForm');
+        const submitOrderBtn = document.getElementById('submitOrderBtn');
+        const orderFormStatus = document.getElementById('orderFormStatus');
+        const quantityMinus = document.getElementById('quantityMinus');
+        const quantityPlus = document.getElementById('quantityPlus');
+        const orderQuantity = document.getElementById('orderQuantity');
+        
+        // Check if elements exist
+        if (!smartOrderForm) return;
+        
+        // Quantity selector functionality
+        if (quantityMinus && quantityPlus && orderQuantity) {
+            quantityMinus.addEventListener('click', function() {
+                let currentValue = parseInt(orderQuantity.value);
+                if (currentValue > 1) {
+                    orderQuantity.value = currentValue - 1;
+                }
+            });
+            
+            quantityPlus.addEventListener('click', function() {
+                let currentValue = parseInt(orderQuantity.value);
+                if (currentValue < 20) {
+                    orderQuantity.value = currentValue + 1;
+                }
+            });
+            
+            // Ensure quantity stays within bounds
+            orderQuantity.addEventListener('change', function() {
+                let value = parseInt(this.value);
+                if (isNaN(value) || value < 1) {
+                    this.value = 1;
+                } else if (value > 20) {
+                    this.value = 20;
+                }
+            });
+        }
+        
+        // Form submission handler
+        smartOrderForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable submit button and show loading state
+            submitOrderBtn.disabled = true;
+            submitOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            // Hide any previous status messages
+            orderFormStatus.style.display = 'none';
+            orderFormStatus.className = 'order-form-status';
+            
+            // Get form data
+            const formData = new FormData(smartOrderForm);
+            
+            // Add timestamp to form data
+            const now = new Date();
+            formData.append('timestamp', now.toLocaleString());
+            formData.append('orderType', 'Dine-in Table Order');
+            
+            try {
+                // Send form data to Formspree
+                const response = await fetch(smartOrderForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    showOrderSuccess();
+                    smartOrderForm.reset();
+                    orderQuantity.value = 1; // Reset quantity
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Show error message
+                showOrderError();
+            } finally {
+                // Re-enable submit button
+                submitOrderBtn.disabled = false;
+                submitOrderBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order';
+            }
+        });
+        
+        // Add form validation styling
+        const formInputs = smartOrderForm.querySelectorAll('input, select, textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('invalid', function() {
+                this.style.borderColor = '#dc3545';
+                this.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.style.borderColor = '#28a745';
+                    this.style.boxShadow = '0 0 0 3px rgba(40, 167, 69, 0.1)';
+                } else {
+                    this.style.borderColor = '#dc3545';
+                    this.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+                }
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = '#e0e0e0';
+                this.style.boxShadow = 'none';
+            });
+        });
+    }
+
+    function showOrderSuccess() {
+        // Create success modal if it doesn't exist
+        let successModal = document.getElementById('orderSuccessModal');
+        
+        if (!successModal) {
+            successModal = document.createElement('div');
+            successModal.id = 'orderSuccessModal';
+            successModal.className = 'order-modal';
+            successModal.innerHTML = `
+                <div class="modal-content">
+                    <div class="close-modal" id="closeSuccessModal">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="modal-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Order Placed Successfully!</h3>
+                    <p>Your order has been sent to our kitchen. We'll prepare it and serve it to your table shortly.</p>
+                    <p><strong>Estimated wait time: 15-20 minutes</strong></p>
+                    <button class="btn" id="closeSuccessBtn">Continue</button>
+                </div>
+            `;
+            document.body.appendChild(successModal);
+            
+            // Add close functionality
+            const closeSuccessModal = document.getElementById('closeSuccessModal');
+            const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+            
+            if (closeSuccessModal) {
+                closeSuccessModal.addEventListener('click', () => {
+                    successModal.classList.remove('active');
+                });
+            }
+            
+            if (closeSuccessBtn) {
+                closeSuccessBtn.addEventListener('click', () => {
+                    successModal.classList.remove('active');
+                });
+            }
+            
+            // Close modal when clicking outside
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    successModal.classList.remove('active');
+                }
+            });
+        }
+        
+        // Show the modal
+        successModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Auto-hide after 8 seconds
+        setTimeout(() => {
+            successModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }, 8000);
+    }
+
+    function showOrderError() {
+        // Create error modal if it doesn't exist
+        let errorModal = document.getElementById('orderErrorModal');
+        
+        if (!errorModal) {
+            errorModal = document.createElement('div');
+            errorModal.id = 'orderErrorModal';
+            errorModal.className = 'order-modal';
+            errorModal.innerHTML = `
+                <div class="modal-content">
+                    <div class="close-modal" id="closeErrorModal">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="modal-icon error">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h3>Order Failed</h3>
+                    <p>Sorry, there was an issue processing your order. Please try again or call our staff for assistance.</p>
+                    <button class="btn" id="closeErrorBtn">Try Again</button>
+                </div>
+            `;
+            document.body.appendChild(errorModal);
+            
+            // Add close functionality
+            const closeErrorModal = document.getElementById('closeErrorModal');
+            const closeErrorBtn = document.getElementById('closeErrorBtn');
+            
+            if (closeErrorModal) {
+                closeErrorModal.addEventListener('click', () => {
+                    errorModal.classList.remove('active');
+                });
+            }
+            
+            if (closeErrorBtn) {
+                closeErrorBtn.addEventListener('click', () => {
+                    errorModal.classList.remove('active');
+                });
+            }
+            
+            // Close modal when clicking outside
+            errorModal.addEventListener('click', (e) => {
+                if (e.target === errorModal) {
+                    errorModal.classList.remove('active');
+                }
+            });
+        }
+        
+        // Show the modal
+        errorModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Auto-hide after 6 seconds
+        setTimeout(() => {
+            errorModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }, 6000);
+    }
+
+    // Initialize the page
+    function init() {
+        renderMenuItems();
+        initEventListeners();
+        animateStats(); // Initialize stats counter
+        handleScrollAnimations(); // Initial check for elements in viewport
+        initSmartOrderForm(); // Initialize smart order form
+    }
+
+    // Start when DOM is loaded
+    document.addEventListener('DOMContentLoaded', init);
+</script>
+ 
+</body>
+</html>
