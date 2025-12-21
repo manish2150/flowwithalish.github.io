@@ -250,9 +250,10 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* Hero Section */
+        /* Hero Section - FIXED FOR MOBILE */
         .hero {
             height: 100vh;
+            min-height: 600px;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
@@ -261,29 +262,45 @@
             text-align: center;
             color: var(--white);
             position: relative;
+            padding: 0 15px;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            width: 100%;
+            padding: 20px;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             color: var(--white);
             animation: fadeInUp 1s ease-out;
+            line-height: 1.2;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             animation: fadeInUp 1s ease-out 0.3s both;
+            line-height: 1.6;
         }
 
         .hero-btns {
             animation: fadeInUp 1s ease-out 0.6s both;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .hero-btns .btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            min-width: 200px;
+            margin: 5px;
         }
 
         /* Stats Section */
@@ -1628,7 +1645,7 @@
             animation: bounce 0.6s ease;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - MOBILE FIXES ADDED HERE */
         @media (max-width: 1200px) {
             .nav-links a {
                 font-size: 0.9rem;
@@ -1702,6 +1719,25 @@
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
+                padding: 0 10px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-btns .btn {
+                width: 90%;
+                max-width: 280px;
+                margin: 0;
+                padding: 15px 20px;
             }
 
             section {
@@ -1732,8 +1768,42 @@
         }
 
         @media (max-width: 576px) {
+            .hero {
+                padding-top: 80px;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 30px 15px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 25px;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                max-width: 300px;
+                margin: 25px auto 0;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1rem;
+                margin: 0;
+                border-radius: 8px;
             }
 
             .menu-items {
@@ -1742,10 +1812,19 @@
             
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-item {
+                padding: 25px 15px;
             }
             
             .stat-number {
                 font-size: 2.5rem;
+            }
+            
+            .stat-text {
+                font-size: 1rem;
             }
             
             .logo-text {
@@ -1758,12 +1837,27 @@
             
             .map-container {
                 height: 350px;
+                margin-top: 40px;
             }
         }
         
         @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .hero-btns .btn {
+                padding: 12px 18px;
+                font-size: 0.95rem;
+            }
+
             .stats-container {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
             
             .order-form-container,
@@ -1777,6 +1871,38 @@
             
             .map-container {
                 height: 300px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .hero-btns .btn {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .logo-img {
+                height: 35px;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -1819,7 +1945,7 @@
             <p class="animate-text">Located at Taxi Chowk, Pokhara, we serve premium coffee, delicious snacks, and offer professional barista training courses in a cozy, artistic atmosphere.</p>
             <div class="hero-btns">
                 <a href="#menu" class="btn">View Our Menu</a>
-                <a href="#training" class="btn btn-secondary" style="margin-left: 15px;">Barista Courses</a>
+                <a href="#training" class="btn btn-secondary">Barista Courses</a>
             </div>
         </div>
     </section>
@@ -2474,7 +2600,7 @@
                 name: "Masala Tea",
                 price: "रु 60",
                 description: "Aromatic Nepali tea with spices and milk.",
-                image: "https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                image: "https://t4.ftcdn.net/jpg/01/66/87/43/360_F_166874362_kZTGg8x1JgRsSCJgO0GWhrkgSWa4ZqRA.jpg",
                 category: "beverages"
             },
             {
